@@ -16,11 +16,15 @@ const Riddle = () => {
     // console.log(fragments);
 
     fragments.forEach((fragment) => {
+      
       if (document.getElementById(`${fragment}`).classList.value != "red") {
-        fragmentsControled.push(
-          document.getElementById(`${fragment}`).innerHTML
-        );
-        // console.log(fragmentsControled)
+
+        if (document.getElementById(`${fragment}`).classList.value != "green") {
+          fragmentsControled.push(
+            document.getElementById(`${fragment}`).innerHTML
+          );
+        }
+                
       }
     });
 
@@ -42,23 +46,23 @@ const Riddle = () => {
 
     // console.log(document.getElementById(`${e.target.innerHTML}`));
 
-    controlAll()
+    // controlAll()
   };
 
-  const controlAll = () =>{
+  // const controlAll = () =>{
 
-    for (let i = 2; i <= 23; i++) {
-      // console.log(document.getElementById(`${i}`).classList.value);
-      const fragments = [];
-      for (let i = 1; i < num; i++) {
-        if (num % i === 0) {
-          fragments.push(i);
-        }
-      }
-    }
+  //   for (let i = 2; i <= 23; i++) {
+  //     // console.log(document.getElementById(`${i}`).classList.value);
+  //     const fragments = [];
+  //     for (let i = 1; i < num; i++) {
+  //       if (num % i === 0) {
+  //         fragments.push(i);
+  //       }
+  //     }
+  //   }
 
 
-  }
+  // }
 
   const buttonsArray = [];
   const renderButtons = (numOfButtons) => {
@@ -66,6 +70,7 @@ const Riddle = () => {
       buttonsArray.push(
         <button key={i} id={i} onClick={pickCard}>
           {i}
+        
         </button>
       );
     }
