@@ -5,17 +5,69 @@ const Riddle2 = () => {
   const [myPoint, setMyPoint] = useState(0);
   const [enemyPoint, setEnemyPoint] = useState(0);
 
-  const findFragments = (num) => {
-    const fragments = [];
-    const fragmentsControled = [];
-    for (let i = 1; i < num; i++) {
-      if (num % i === 0) {
-        fragments.push(i);
-      }
+
+  //!============================== Create AllArray =====================================
+let allArray = [[]]
+for(let num = 1 ; num < 24 ; num++){
+    let y = []
+    for(let j = 1 ; j <= num ; j++){
+        if(num % j == 0){
+            y.push(j)
+        }
     }
-        
-        
-  };
+    allArray.push(y)
+}
+// ===============================================================================
+
+
+
+ // ===============================================================================
+ 
+ 
+ const removeFunc =(remove)=>{
+     for(let a = 1 ;  a< 24 ; a++){
+     for(let i = 0 ;i<allArray[a].length ; i++){
+    if(allArray[a][i] == remove){
+        allArray[a].splice(i,1)
+    }
+}
+ }
+ 
+ for(let k = 1 ; k < 24 ;k++){
+   if(allArray[k].length > 1){
+       console.log(k+" +++++++++++")
+   }else{
+       console.log(k+" ------")
+   }
+ }
+ console.log("===============================================================================")
+ console.log(allArray)
+ }
+ 
+ 
+ // ===============================================================================
+ 
+
+ 
+ 
+ const pickCard=(e)=>{
+     
+     for(let i = 1 ; i < e ; i++){
+         if(e % i == 0){
+             removeFunc(i)
+         }
+     }
+ }
+ 
+ pickCard(16)
+ 
+ 
+ // ===============================================================================
+
+
+
+
+ 
 
     
   
@@ -23,6 +75,7 @@ const Riddle2 = () => {
    
 
   
+ //! =============================== Render Buttons =============================
 
   const buttonsArray = [];
   const renderButtons = (numOfButtons) => {
@@ -36,54 +89,19 @@ const Riddle2 = () => {
     }
     return buttonsArray;
   };
+ // ===============================================================================
 
 
   
-  const myData = {
-    num1 : [],
-    num2 : [1]
-  }
-
-  myData.num3 = [3,9]
-
-  for (let i = 1; i < 24; i++) {
-    
-  }
+ 
 
 
-// let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
-    
-//     const findFragmnets =(num)=>{
-        
-//         let fragmnets = []
-        
-//         for (let i = 2 ; i < num ; i++){
-//             if(num % i == 0){
-//                     fragmnets.push(i)
-                    
-//             }
-//         }
-        
-//         if (fragmnets.length == 0) {
-//         console.log(num + " ın bölenleri yok")
-          
-//         }else{
-//           console.log(num + " ın bölenleri bunlar "+fragmnets)
 
-//         }
 
 
 
         
-//         for(let i = 0 ; i < fragmnets.length ; i++){
-//             findFragmnets(fragmnets[i]);
-//         }
-        
-        
-       
-//     }
-    
-//     findFragmnets(22);
+
 
 
 
@@ -97,6 +115,7 @@ const Riddle2 = () => {
         <p className="notMyPoint">Its Points : {enemyPoint}</p>
       </div>
       <div className="buttonsDiv">{renderButtons(23)}</div>
+      
     </div>
   );
 };
