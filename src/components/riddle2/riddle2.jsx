@@ -25,22 +25,17 @@ for(let num = 1 ; num < 24 ; num++){
  
  const removeFunc =(remove)=>{
      for(let a = 1 ;  a< 24 ; a++){
+
      for(let i = 0 ;i<allArray[a].length ; i++){
+
     if(allArray[a][i] == remove){
         allArray[a].splice(i,1)
     }
 }
  }
  
- for(let k = 1 ; k < 24 ;k++){
-   if(allArray[k].length > 2){
-       console.log(k+" +++++++++++")
-   }else{
-    document.getElementById(`${k}`).classList.value = "red"
-   }
- }
- console.log("===============================================================================")
- console.log(allArray)
+
+
  }
  
  
@@ -57,6 +52,14 @@ for(let num = 1 ; num < 24 ; num++){
              removeFunc(i)
          }
      }
+
+     for(let k = 1 ; k < 24 ;k++){
+      if(allArray[k].length > 2){
+          console.log(k+" +++++++++++")
+      }else{
+       document.getElementById(`${k}`).classList.value = "red"
+      }
+    }
  }
  
 
