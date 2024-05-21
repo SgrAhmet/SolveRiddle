@@ -6,7 +6,7 @@ const Riddle2 = () => {
   const [enemyPoint, setEnemyPoint] = useState(0);
 
 
-  //!============================== Create AllArray =====================================
+  //!============================== Create AllArray ============================
 let allArray = [[]]
 for(let num = 1 ; num < 24 ; num++){
     let y = []
@@ -17,11 +17,10 @@ for(let num = 1 ; num < 24 ; num++){
     }
     allArray.push(y)
 }
-// ===============================================================================
+// ==============================================================================
 
 
-
- // ===============================================================================
+ // =============================================================================
  
  
  const removeFunc =(remove)=>{
@@ -34,10 +33,10 @@ for(let num = 1 ; num < 24 ; num++){
  }
  
  for(let k = 1 ; k < 24 ;k++){
-   if(allArray[k].length > 1){
+   if(allArray[k].length > 2){
        console.log(k+" +++++++++++")
    }else{
-       console.log(k+" ------")
+    document.getElementById(`${k}`).classList.value = "red"
    }
  }
  console.log("===============================================================================")
@@ -52,14 +51,15 @@ for(let num = 1 ; num < 24 ; num++){
  
  const pickCard=(e)=>{
      
-     for(let i = 1 ; i < e ; i++){
-         if(e % i == 0){
+  
+     for(let i = 1 ; i < e.target.innerHTML ; i++){
+         if(e.target.innerHTML % i == 0){
              removeFunc(i)
          }
      }
  }
  
- pickCard(16)
+
  
  
  // ===============================================================================
@@ -81,7 +81,7 @@ for(let num = 1 ; num < 24 ; num++){
   const renderButtons = (numOfButtons) => {
     for (let i = 1; i <= numOfButtons; i++) {
       buttonsArray.push(
-        <button key={i} id={i}>
+        <button onClick={pickCard} key={i} id={i}>
           {i}
         
         </button>
